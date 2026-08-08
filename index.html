@@ -461,22 +461,42 @@ body.present .present-ui{
   padding:12px 16px;border:1.6px solid var(--ink);
 }
 
-/* ---------- print / PDF ---------- */
+/* ---------- print / PDF: currículo dedicado ---------- */
+#cvprint{display:none}
+@page{size:A4;margin:11mm 13mm}
 @media print{
-  nav,.marquee-wrap,.present-fab,.present-ui,.scrollbadge,.hero-cta,.projfoot,.modal{display:none !important}
-  html.js .rv{opacity:1 !important;transform:none !important}
-  body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  section.block,.hero{padding-top:34px;padding-bottom:34px}
-  [data-slide]{page-break-after:always;break-after:page}
-  .contact{page-break-after:auto;break-after:auto}
-  .panel{display:block !important;margin-bottom:20px}
-  .tabs{display:none}
-  .panel::before{content:attr(data-title);display:block;font-weight:800;font-size:18px;margin:18px 0 6px}
-  .proj:hover,.svc:hover{transform:none;background:none}
-  .hero h1{font-size:54px}
-  .contact h2{font-size:60px}
-  .xp video,.cover video{display:none !important}
-  .xp .mwrap{box-shadow:none}
+  nav,.hero,.marquee-wrap,section.block,.contact,.present-fab,.present-ui,.modal,.scrollbadge{display:none !important}
+  body{background:#fff;color:#141614;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  #cvprint{display:block !important;font-size:10pt;line-height:1.42}
+  #cvprint a{color:inherit;text-decoration:none}
+  .cvhead{border-bottom:2.5px solid var(--ink);padding-bottom:8pt}
+  .cvhead h1{font-size:23pt;font-weight:800;letter-spacing:-.02em;line-height:1.04}
+  .cvhead .cvrole{font-size:10.5pt;font-weight:700;margin-top:2pt}
+  .cvhead .cvcontact{font-size:8.6pt;color:#4c514e;font-weight:500;margin-top:3pt}
+  .cvsec{margin-top:9.5pt}
+  .cvsec>h2{
+    font-size:8.6pt;font-weight:800;text-transform:uppercase;letter-spacing:.14em;
+    display:flex;align-items:center;gap:6pt;margin-bottom:4pt;
+    break-after:avoid;page-break-after:avoid;
+  }
+  .cvsec>h2::before{content:'';width:6pt;height:6pt;background:var(--green);border:1pt solid var(--ink)}
+  .cvsec h3{font-size:9.6pt;font-weight:800;margin:6pt 0 2.5pt;break-after:avoid;page-break-after:avoid}
+  .cvsum{font-size:9.6pt;color:#2b2f2d}
+  .cventry{margin-bottom:6.5pt;break-inside:avoid;page-break-inside:avoid}
+  .cvrow{display:flex;align-items:baseline;gap:7pt;flex-wrap:wrap}
+  .cvrow strong{font-size:11pt;font-weight:800;letter-spacing:-.01em}
+  .cvrow .cvr{font-size:9.4pt;font-weight:700}
+  .cvrow .cvr i{font-style:normal;color:#0b9d62;font-weight:800}
+  .cvrow .cvwhen{margin-left:auto;font-size:8.4pt;font-weight:700;color:#4c514e;white-space:nowrap}
+  .cventry>p{font-size:9.2pt;color:#333835;margin-top:1.5pt}
+  .cvlist{list-style:none;margin:0;padding:0}
+  .cvlist li{font-size:9.2pt;color:#333835;margin-bottom:2.2pt;break-inside:avoid;page-break-inside:avoid}
+  .cvlist li strong{color:#141614;font-weight:800}
+  .cvinline{font-size:9.2pt;color:#333835}
+  .cvskills{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:2.2pt 16pt}
+  .cvskills li{font-size:8.9pt;color:#333835;break-inside:avoid;page-break-inside:avoid}
+  .cvskills li strong{color:#141614;font-weight:800}
+  .cvfoot{margin-top:10pt;padding-top:5pt;border-top:1pt solid #d8dcd9;font-size:8pt;color:#7a807c}
 }
 </style>
 </head>
@@ -862,6 +882,75 @@ body.present .present-ui{
   </div>
 </section>
 
+<!-- ======== CV PARA IMPRESSÃO / PDF ======== -->
+<div id="cvprint" aria-hidden="true">
+  <header class="cvhead">
+    <h1>João Franco</h1>
+    <p class="cvrole" data-i18n="cvrole">Empreendedor &amp; Creative Technologist · Co-founder da BORA e da unflat studio</p>
+    <p class="cvcontact" data-i18n="cvcontact">Rio de Janeiro, Brasil · +55 21 98041-5328 · jp.franconl@gmail.com · linkedin.com/in/jp-franco · bora.id · unflat.studio</p>
+  </header>
+
+  <section class="cvsec">
+    <h2 data-i18n="cvsum">Resumo</h2>
+    <p class="cvsum" data-i18n="lead">Empreendedor e creative technologist do Rio de Janeiro. Co-founder da BORA e da unflat studio, com mais de 60 projetos entregues para marcas como Meta, Netflix, Nubank e Itaú em 10 países. Atuo da estratégia à execução: negócio, design, código, mídia e vídeo.</p>
+  </section>
+
+  <section class="cvsec">
+    <h2 data-i18n="tab1">Experiência</h2>
+    <div class="cventry">
+      <div class="cvrow"><strong>BORA</strong><span class="cvr" data-i18n-h="r1">Co-founder &amp; <i>CEO</i></span><span class="cvwhen" data-i18n="w1">atual</span></div>
+      <p data-i18n="d1">Startup brasileira de autenticação e pagamentos com a palma da mão. Como co-founder e CEO, lidero produto, tecnologia e negócios: do hardware ao app, da tese à operação.</p>
+    </div>
+    <div class="cventry">
+      <div class="cvrow"><strong>unflat studio</strong><span class="cvr" data-i18n-h="r2">Co-founder &amp; <i>Creative Technologist</i></span><span class="cvwhen" data-i18n="w2">desde 2022</span></div>
+      <p data-i18n="d2">A unflat é um estúdio de arte, tecnologia e design. Exploramos, testamos e aplicamos novos formatos de mídia todos os dias para criar instalações de arte e experiências de live marketing na velocidade das tecnologias emergentes. Como co-founder, lidero novos negócios e estratégia comercial, do primeiro contato ao projeto entregue.</p>
+    </div>
+    <div class="cventry">
+      <div class="cvrow"><strong>Vitulo &amp; Co</strong><span class="cvr" data-i18n-h="r3">Creative <i>Technologist</i></span><span class="cvwhen" data-i18n="w3">anterior</span></div>
+      <p data-i18n="d3">Creative technologist com mais de 60 projetos entregues para clientes em 10 países e 4 continentes, incluindo Meta, Netflix, L'Oréal, Snap, Samsung, Amazon, Nubank, Brahma, Antarctica e Vivo. Na Vitulo &amp; Co, desenvolvi ideias e soluções inovadoras ao lado de um time apaixonado por inovação, ajudando marcas a se manterem à frente em um mercado em constante transformação.</p>
+    </div>
+    <div class="cventry">
+      <div class="cvrow"><strong>L'Oréal</strong><span class="cvr" data-i18n-h="r4">Trade Marketing · <i>Maybelline &amp; Colorama</i></span><span class="cvwhen" data-i18n="w4">anterior</span></div>
+      <p data-i18n="d4">Aprendiz de trade marketing nas marcas Maybelline e Colorama: acompanhamento de números de venda (sell in e sell out), gestão de estoque, relacionamento com vendedores e planejamento de ações de marketing no ponto de venda. A porta de entrada para o mundo de marcas, varejo e resultado.</p>
+    </div>
+  </section>
+
+  <section class="cvsec">
+    <h2 data-i18n="cvproj">Projetos &amp; Produtos</h2>
+    <h3 data-i18n="cvown">Produtos próprios</h3>
+    <ul class="cvlist">
+      <li><strong>BORA</strong> · <span data-i18n="cb">Startup brasileira de autenticação e pagamentos com a palma da mão. Sou co-founder e CEO.</span></li>
+      <li><strong>CarnaInfo</strong> · <span data-i18n="cc">O app do Carnaval do Rio: encontrar blocos, montar a programação e compartilhar a folia. Mais de 10 mil usuários.</span></li>
+      <li><strong>SplitMenu</strong> · <span data-i18n="cs">Pedir, dividir e pagar a conta direto do tablet na mesa do bar, sem chamar o garçom e sem calculadora.</span></li>
+      <li><strong>unrefs</strong> · <span data-i18n="cu">Biblioteca de efeitos de vídeo com curadoria, busca e painel de criação para criadores de conteúdo.</span></li>
+      <li><strong>Nektar</strong> · <span data-i18n="cn">A Nektar foi uma bebida universitária: marca própria criada para as festas do público universitário.</span></li>
+    </ul>
+    <h3 data-i18n="cvsel">unflat studio · selecionados</h3>
+    <p class="cvinline" data-i18n="cvunfl">SambaCore, projeto autoral de arte e dados do Carnaval (2025) · Itaú no Web Summit Rio, instalação interativa (2023) · Merz Pulsar, instalação sensorial (2024) · Nubank, figurinhas e filtros da Copa do Mundo FIFA Qatar 2022 · Coca-Cola Kapo, photobooth em pontos de venda (2023)</p>
+  </section>
+
+  <section class="cvsec">
+    <h2 data-i18n="tab2">Skills</h2>
+    <ul class="cvskills">
+      <li><strong data-i18n="s1t">Planejamento Estratégico</strong>: <span data-i18n="s1d">Posicionamento, oferta, pricing e go-to-market de produtos e serviços.</span></li>
+      <li><strong data-i18n="s2t">Design</strong>: <span data-i18n="s2d">UI/UX, identidade visual e design de experiências físico-digitais.</span></li>
+      <li><strong data-i18n="s3t">Programação</strong>: <span data-i18n="s3d">Web e mobile com React, TypeScript e iOS, e IA aplicada a produto.</span></li>
+      <li><strong data-i18n="s4t">Tráfego Pago</strong>: <span data-i18n="s4d">Meta e Google Ads, funis de aquisição e otimização de conversão.</span></li>
+      <li><strong data-i18n="s5t">Edição de Vídeo</strong>: <span data-i18n="s5d">Edição, motion e conteúdo para marcas, campanhas e produto.</span></li>
+      <li><strong data-i18n="s6t">Emerging Tech</strong>: <span data-i18n="s6d">Realidade aumentada, instalações interativas e experiências espaciais.</span></li>
+    </ul>
+  </section>
+
+  <section class="cvsec">
+    <h2 data-i18n="tab3">Formação</h2>
+    <div class="cventry">
+      <div class="cvrow"><strong data-i18n="fmt">Empreendedorismo</strong><span class="cvr" data-i18n="cvuff">Universidade Federal Fluminense (UFF)</span></div>
+    </div>
+  </section>
+
+  <p class="cvfoot" data-i18n="cvfoot">jpfraanco.github.io/jp-franco-cv · versão interativa com projetos, vídeos e modo apresentação</p>
+</div>
+
 <!-- ======== PROJECT MODAL ======== -->
 <div class="modal" id="modal" aria-hidden="true">
   <div class="modal-back" id="modalBack"></div>
@@ -942,7 +1031,14 @@ pt:{
   u5:'Photobooth interativo da Kapo levando a marca para o ponto de venda com tecnologia e diversão.',
   unall:'Ver todos em unflat.studio',
   cth2:'Tem um <em>projeto</em>?<br>Bora construir.',
-  ping:'Me chama',present:'Apresentar'
+  ping:'Me chama',present:'Apresentar',
+  cvsum:'Resumo',
+  cvrole:'Empreendedor & Creative Technologist · Co-founder da BORA e da unflat studio',
+  cvcontact:'Rio de Janeiro, Brasil · +55 21 98041-5328 · jp.franconl@gmail.com · linkedin.com/in/jp-franco · bora.id · unflat.studio',
+  cvproj:'Projetos & Produtos',cvown:'Produtos próprios',cvsel:'unflat studio · selecionados',
+  cvunfl:'SambaCore, projeto autoral de arte e dados do Carnaval (2025) · Itaú no Web Summit Rio, instalação interativa (2023) · Merz Pulsar, instalação sensorial (2024) · Nubank, figurinhas e filtros da Copa do Mundo FIFA Qatar 2022 · Coca-Cola Kapo, photobooth em pontos de venda (2023)',
+  cvuff:'Universidade Federal Fluminense (UFF)',
+  cvfoot:'jpfraanco.github.io/jp-franco-cv · versão interativa com projetos, vídeos e modo apresentação'
 },
 en:{
   title:'João Franco · Tech & Business',
@@ -994,8 +1090,15 @@ en:{
   u5:"Kapo's interactive photobooth bringing the brand to retail with tech and fun.",
   unall:'See all on unflat.studio',
   cth2:'Got a <em>project</em>?<br>Let&rsquo;s build it.',
-  ping:'Ping me',present:'Present'
-}
+  ping:'Ping me',present:'Present',
+  cvsum:'Summary',
+  cvrole:'Entrepreneur & Creative Technologist · Co-founder of BORA and unflat studio',
+  cvcontact:'Rio de Janeiro, Brazil · +55 21 98041-5328 · jp.franconl@gmail.com · linkedin.com/in/jp-franco · bora.id · unflat.studio',
+  cvproj:'Projects & Products',cvown:'Own products',cvsel:'unflat studio · selected work',
+  cvunfl:'SambaCore, an original Carnival art and data project (2025) · Itaú at Web Summit Rio, interactive installation (2023) · Merz Pulsar, sensory installation (2024) · Nubank, FIFA World Cup Qatar 2022 stickers and filters · Coca-Cola Kapo, retail photobooth (2023)',
+  cvuff:'Fluminense Federal University (UFF)',
+  cvfoot:'jpfraanco.github.io/jp-franco-cv · interactive version with projects, videos and presentation mode'
+},
 };
 let lang=localStorage.getItem('lang')||'pt';
 function setLang(l){
