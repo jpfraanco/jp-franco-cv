@@ -325,7 +325,8 @@ section.block{
   transition:box-shadow .22s;
 }
 .proj:hover .cover{box-shadow:8px 8px 0 var(--green)}
-.cover img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.cover img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.cover video{position:relative;z-index:1;width:100%;height:100%;object-fit:cover}
 .proj:hover .cover img{transform:scale(1.045)}
 .cover .word{
   font-size:clamp(30px,3.4vw,44px);font-weight:800;letter-spacing:-.03em;line-height:.95;
@@ -471,7 +472,7 @@ body.present .present-ui{
   .proj:hover,.svc:hover{transform:none;background:none}
   .hero h1{font-size:54px}
   .contact h2{font-size:60px}
-  .xp video{display:none}
+  .xp video,.cover video{display:none !important}
   .xp .mwrap{box-shadow:none}
 }
 </style>
@@ -717,6 +718,10 @@ body.present .present-ui{
       <div class="cover c-ink">
         <svg class="deco" viewBox="0 0 320 210" preserveAspectRatio="none"><circle cx="290" cy="30" r="46" fill="#1FE08C" opacity=".25"/><circle cx="30" cy="185" r="30" fill="#1FE08C" opacity=".18"/></svg>
         <span class="word">BORA<em style="color:#fff">.</em></span>
+        <video autoplay muted loop playsinline preload="metadata">
+          <source src="https://bora.id/assets/video/bora_LOOP_4k_exact.mp4" type="video/mp4">
+          <source src="https://bora.id/assets/video/bora_LOOP_4k_exact.webm" type="video/webm">
+        </video>
       </div>
       <h3>BORA</h3>
       <p data-i18n="cb">Startup brasileira de autenticação e pagamentos com a palma da mão. Sou co-founder e CEO.</p>
@@ -727,6 +732,7 @@ body.present .present-ui{
       <div class="cover c-green">
         <svg class="deco" viewBox="0 0 320 210" preserveAspectRatio="none"><g fill="#0C0F0D" opacity=".16"><circle cx="24" cy="30" r="5"/><circle cx="70" cy="14" r="4"/><circle cx="120" cy="38" r="6"/><circle cx="180" cy="16" r="4"/><circle cx="240" cy="34" r="5"/><circle cx="296" cy="20" r="4"/><circle cx="40" cy="180" r="4"/><circle cx="110" cy="196" r="5"/><circle cx="200" cy="184" r="4"/><circle cx="282" cy="192" r="6"/></g></svg>
         <span class="word">CARNA<br>INFO</span>
+        <img src="img/carnainfo.jpg" alt="CarnaInfo" onerror="this.remove()">
       </div>
       <h3>CarnaInfo</h3>
       <p data-i18n="cc">O app do Carnaval do Rio: encontrar blocos, montar a programação e compartilhar a folia. Mais de 10 mil usuários.</p>
@@ -747,6 +753,9 @@ body.present .present-ui{
       <div class="cover c-ink">
         <svg class="deco" viewBox="0 0 320 210" preserveAspectRatio="none"><g stroke="#1FE08C" stroke-width="1" opacity=".35"><path d="M0 42h320M0 84h320M0 126h320M0 168h320"/><path d="M53 0v210M107 0v210M160 0v210M213 0v210M267 0v210"/></g></svg>
         <span class="word" style="text-transform:lowercase">unrefs_</span>
+        <video autoplay muted loop playsinline preload="metadata">
+          <source src="img/unrefs.mp4" type="video/mp4">
+        </video>
       </div>
       <h3>unrefs</h3>
       <p data-i18n="cu">Biblioteca de efeitos de vídeo com curadoria, busca e painel de criação para criadores de conteúdo.</p>
@@ -756,6 +765,7 @@ body.present .present-ui{
     <div class="proj rv" style="--d:.24s">
       <div class="cover c-green">
         <svg class="deco" viewBox="0 0 320 210"><path d="M160 46c-30 38-46 62-46 84a46 46 0 0 0 92 0c0-22-16-46-46-84z" fill="#06231A"/><path d="M160 46c-30 38-46 62-46 84a46 46 0 0 0 92 0c0-22-16-46-46-84z" fill="none" stroke="#0C0F0D" stroke-width="2.5"/><circle cx="176" cy="140" r="10" fill="#1FE08C"/></svg>
+        <img src="img/nektar.jpg" alt="Nektar" onerror="this.remove()">
       </div>
       <h3>Nektar</h3>
       <p data-i18n="cn">A Nektar foi uma bebida universitária: marca própria criada para as festas do público universitário.</p>
