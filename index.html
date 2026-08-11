@@ -534,9 +534,9 @@ body.present .present-ui{
       <a class="btn" href="https://wa.me/5521980415328" target="_blank" rel="noopener"><span data-i18n="talk2">Fale comigo</span>
         <svg class="arw" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       </a>
-      <button class="btn-ghost" onclick="window.print()"><span data-i18n="cv">Baixar CV</span>
+      <a class="btn-ghost" id="cvDownload" href="curriculo-joao-franco.pdf" download="Currículo João Franco _ Tech &amp; Business.pdf"><span data-i18n="cv">Baixar CV</span>
         <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 1v9m0 0L4 6.5M7.5 10L11 6.5M2 13.5h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
+      </a>
     </div>
     <div class="findme rv" style="--d:.32s">
       <span data-i18n="find">Me encontre em:</span>
@@ -1115,6 +1115,11 @@ function setLang(l){
   document.getElementById('p-sk').dataset.title=T[l].tab2;
   document.getElementById('p-fm').dataset.title=T[l].tab3;
   document.title=T[l].title;
+  var dl=document.getElementById('cvDownload');
+  if(dl){
+    if(l==='pt'){dl.href='curriculo-joao-franco.pdf';dl.setAttribute('download','Currículo João Franco _ Tech & Business.pdf')}
+    else{dl.href='resume-joao-franco.pdf';dl.setAttribute('download','Resume João Franco _ Tech & Business.pdf')}
+  }
 }
 document.getElementById('langSw').addEventListener('click',()=>setLang(lang==='pt'?'en':'pt'));
 if(lang!=='pt')setLang(lang);
