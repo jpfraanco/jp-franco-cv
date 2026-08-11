@@ -2,7 +2,7 @@
 
 Site-currículo pessoal, bilíngue (pt/en), em um único `index.html`.
 
-- **Ver online**: https://jpfraanco.github.io/jp-franco-cv/
+- **Ver online**: https://jpfraanco.github.io/cv/
 - **Idioma**: toggle `pt · en` no topo
 - **Modo apresentação**: botão "▶ Apresentar" ou tecla `P` (setas navegam, Esc sai)
 - **PDF**: botão "Baixar CV" abre a impressão com layout dedicado
